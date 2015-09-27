@@ -43,15 +43,12 @@ class Event
     bg_white:   47
   }
 
-  GLYPH = {
-    noizee:  ?\u27B2,
-    twitter: "\u24E3 "
-  }
-
-  GLYPH_COLOR = {
+  SOURCE_COLOR = {
     noizee:  COLOR[:fg_orange],
     twitter: '38;5;81'
   }
+
+  COLOR.merge SOURCE_COLOR
 
   def formatted_output
     head_length = [
@@ -66,7 +63,7 @@ class Event
       color(COLOR[:fg_white]),
       PREFIX, SEP,
       LSEP, color(COLOR[:fg_grey]), at, color(COLOR[:fg_white]), RSEP,
-      LSEP, color(GLYPH_COLOR[source]), by, color(COLOR[:fg_white]), RSEP,
+      LSEP, color(SOURCE_COLOR[source]), by, color(COLOR[:fg_white]), RSEP,
       SEP,
       LSEP, color(COLOR[:normal]), trunc(summary, head_length),
       color(COLOR[:normal])
@@ -76,10 +73,6 @@ class Event
 
   def color code
     Remedy::ANSI::Color.c code
-  end
-
-  def glyph
-    GLYPH[source.to_sym]
   end
 
   def at
