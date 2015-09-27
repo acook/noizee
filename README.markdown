@@ -34,21 +34,21 @@ Example `.noizee` configuration:
 Implemented
 -----------
 
-- Twitter support
+- Twitter integration
+- RSS integration
 - Multiple Twitter accounts
 - Colorized output
+- Facebook integration [experimental]
 
 Planned
 -------
 
-- Filtering
+- Filtering & Rules
 - Highlighting
 - Tag searching
-- Facebook support
-- RSS support
-- Google Plus support
-- XMPP support
-- Email support
+- Google Plus integration
+- XMPP integration
+- Email integration
 - Desktop notification support for highlights
 
 `Copyright 2011-2015 Anthony M. Cook`
