@@ -1,16 +1,46 @@
 Noizee
 ======
 
-Just a stupid idea to stream social media on the commandline. The idea was to make it look like interesting shit is happening on your screen all the time, while getting your news and crap.
+> A unified commandline timeline.
 
-Ideally would support Twitter, Facebook, Google Reader, and Google Plus.
-If I feel frisky I could integrate XMPP to scan for incoming Facebook and Gchat notifications.
-Maybe email support, just showing subject and author.
+Getting Started
+---------------
 
-It's read-only for now, I'm not interested in making another client, just an aggregator.
+0. Create a YAML file called `.noizee` in your home directory
+1. Add your credentials as hash keys
+2. Run `bin/noizee`
 
-Configurable Growl support on OSX, and whatever equivilent on Gnome/KDE and Windows 7.
+Configuration
+-------------
 
-Uhhh, thats all.
+Example `.noizee` configuration:
 
+~~~
+---
+# twitter
+:consumer_key: "abc123"
+:consumer_secret: "abc123"
+:access_token: "abc123-abc123"
+:access_token_secret: "abc123"
+~~~
 
+Implemented
+-----------
+
+- Twitter support
+
+Planned
+-------
+
+- Colorized output
+- Filtering
+- Highlighting
+- Tag searching
+- Facebook support
+- RSS support
+- Google Plus support
+- XMPP support
+- Email support
+- Desktop notification support for highlights
+
+`Copyright 2011-2015 Anthony M. Cook`
