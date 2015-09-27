@@ -1,6 +1,7 @@
 require 'yaml'
 require 'twitter'
 require_relative 'event'
+require_relative 'configuration'
 
 # The Twitter gem is using a deprecated constant
 # This silences the warning message
@@ -9,26 +10,36 @@ Faraday.const_set :Builder, Faraday::RackBuilder
 module Noizee
   class Twitter
     def initialize
-      conf = YAML.load_file "#{ENV['HOME']}/.noizee"
-      @client = ::Twitter::REST::Client.new do |config|
-        config.consumer_key        = conf[:consumer_key]
-        config.consumer_secret     = conf[:consumer_secret]
-        config.access_token        = conf[:access_token]
-        config.access_token_secret = conf[:access_token_secret]
+      @clients = Array.new
+      configs  = Array[Noizee::Configuration.twitter]
+
+      configs.each do |config|
+        clients << setup_client(config)
       end
 
       checked!
     end
-    attr_accessor :client, :delay, :last_check
+    attr_accessor :clients, :delay, :last_check
+
+    def setup_client config
+      ::Twitter::REST::Client.new do |twitter|
+        twitter.consumer_key        = config.consumer_key
+        twitter.consumer_secret     = config.consumer_secret
+        twitter.access_token        = config.access_token
+        twitter.access_token_secret = config.access_token_secret
+      end
+    end
 
     def get
       return Array.new if too_soon?
       checked!
 
-      client.home_timeline(options).map do |t|
-        options[:since_id] = [options[:since_id], t.id].max
-        Event.new source: :twitter, created_at: t.created_at, created_by: t.user.name, full_text: t.full_text
-      end
+      clients.map do |client|
+        client.home_timeline(options).map do |t|
+          options[:since_id] = [options[:since_id], t.id].max
+          Event.new source: :twitter, created_at: t.created_at, created_by: t.user.name, full_text: t.full_text
+        end
+      end.flatten
     rescue ::Twitter::Error::TooManyRequests
       rate_limit!
       Array.new
