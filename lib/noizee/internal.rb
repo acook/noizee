@@ -1,17 +1,16 @@
 module Noizee
   class Internal
-    EVENTS = Array.new
+    @events = Array.new
 
-    def self.event text
-      EVENTS << Event.new(source: :noizee, created_by: ENV['USER'], created_at: Time.now, full_text: text)
+    class << self
+      def event text
+        events << Event.new(source: :noizee, created_by: ENV['USER'], created_at: Time.now, full_text: text)
+      end
+      attr_accessor :events
     end
 
     def get
-      if EVENTS.empty? then
-        Array.new
-      else
-        [EVENTS.pop]
-      end
+      self.class.events.tap{ self.class.events = Array.new }
     end
   end
 end
