@@ -1,4 +1,3 @@
-require 'yaml'
 require 'twitter'
 require_relative 'event'
 require_relative 'configuration'
