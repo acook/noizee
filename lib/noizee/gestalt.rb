@@ -7,8 +7,14 @@ module Noizee
         events.concat twitter.get
       end
 
+      events.sort_by(&:created_at)
+
       sleep 1
       !events.empty?
+    end
+
+    def pop
+      events.pop
     end
 
     def events
