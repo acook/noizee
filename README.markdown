@@ -9,8 +9,9 @@ Getting Started
 ---------------
 
 0. Create a YAML file called `.noizee` in your home directory
-1. Add your credentials as hash keys
+1. Add your credentials as shown in the **Configuration** section below
 2. Run `bin/noizee`
+3. Enjoy!
 
 Configuration
 -------------
@@ -19,17 +20,22 @@ Example `.noizee` configuration:
 
 ~~~
 ---
-# twitter
-:consumer_key: "abc123"
-:consumer_secret: "abc123"
-:access_token: "abc123-abc123"
-:access_token_secret: "abc123"
+:twitter:
+  - :consumer_key: "abc123"
+    :consumer_secret: "abc123"
+    :access_token: "abc123-abc123"
+    :access_token_secret: "abc123"
+  - :consumer_key: "abc123"
+    :consumer_secret: "abc123"
+    :access_token: "abc123-abc123"
+    :access_token_secret: "abc123"
 ~~~
 
 Implemented
 -----------
 
 - Twitter support
+- Multiple Twitter accounts
 - Colorized output
 
 Planned
