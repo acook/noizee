@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'virtus'
+gem 'remedy'
 
 # Twitter: https://github.com/sferik/twitter#the-twitter-ruby-gem
 gem 'twitter'

@@ -38,6 +38,7 @@ GEM
       thread_safe (~> 0.1.3)
     multi_json (1.11.2)
     multipart-post (2.0.0)
+    remedy (0.0.4)
     simple_oauth (0.2.0)
     spruz (0.2.13)
     text-format (1.0.0)
@@ -67,5 +68,6 @@ PLATFORMS
 DEPENDENCIES
   github
   koala
+  remedy
   twitter
   virtus
