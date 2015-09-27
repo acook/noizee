@@ -39,7 +39,8 @@ module Noizee
 
     SOURCE_COLOR = {
       noizee:  COLOR[:fg_orange],
-      twitter: '38;5;81'
+      twitter: '38;5;81',
+      rss: '38;5;208'
     }
 
     COLOR.merge! SOURCE_COLOR

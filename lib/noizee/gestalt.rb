@@ -1,5 +1,6 @@
 require_relative 'internal'
 require_relative 'twitter'
+require_relative 'rss'
 
 module Noizee
   class Gestalt
@@ -31,7 +32,8 @@ module Noizee
     def setup_sources
       [
         Noizee::Internal.new,
-        Noizee::Twitter.new
+        Noizee::Twitter.new,
+        Noizee::RSS.new
       ]
     end
   end
