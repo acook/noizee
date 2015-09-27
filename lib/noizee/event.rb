@@ -48,7 +48,7 @@ class Event
     twitter: '38;5;81'
   }
 
-  COLOR.merge SOURCE_COLOR
+  COLOR.merge! SOURCE_COLOR
 
   def formatted_output
     head_length = [
@@ -60,19 +60,19 @@ class Event
     ].join.length
 
     [
-      color(COLOR[:fg_white]),
+      color(:fg_white),
       PREFIX, SEP,
-      LSEP, color(COLOR[:fg_grey]), at, color(COLOR[:fg_white]), RSEP,
-      LSEP, color(SOURCE_COLOR[source]), by, color(COLOR[:fg_white]), RSEP,
+      LSEP, color(:fg_grey), at, color(:fg_white), RSEP,
+      LSEP, color(source), by, color(:fg_white), RSEP,
       SEP,
-      LSEP, color(COLOR[:normal]), trunc(summary, head_length),
-      color(COLOR[:normal])
+      LSEP, color(:normal), trunc(summary, head_length),
+      color(:normal)
     ].join
   end
   alias_method :to_s, :formatted_output
 
-  def color code
-    Remedy::ANSI::Color.c code
+  def color name
+    Remedy::ANSI::Color.c COLOR[name]
   end
 
   def at
