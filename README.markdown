@@ -29,6 +29,9 @@ Example `.noizee` configuration:
     :consumer_secret: "abc123"
     :access_token: "abc123-abc123"
     :access_token_secret: "abc123"
+:rss:
+  - :url: "http://feeds.sydv.net/latest-bash-quotes"
+    :alias: "Bash.org"
 ~~~
 
 Implemented
