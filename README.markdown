@@ -3,6 +3,8 @@ Noizee
 
 > A unified commandline timeline.
 
+Use Noizee to keep tabs on what's going on in your world. Noizee aggregates events from around the internet and displays them in one place so you don't have to check dozens of apps and services to stay up to date so you can plan your next move. 
+
 Getting Started
 ---------------
 
@@ -28,11 +30,11 @@ Implemented
 -----------
 
 - Twitter support
+- Colorized output
 
 Planned
 -------
 
-- Colorized output
 - Filtering
 - Highlighting
 - Tag searching
