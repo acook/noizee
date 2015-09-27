@@ -1,5 +1,6 @@
 require 'yaml'
 require 'twitter'
+require_relative 'event'
 
 module Noizee
   class Twitter
@@ -19,7 +20,7 @@ module Noizee
 
       @client.home_timeline(options).map do |t|
         options[:since_id] = [options[:since_id], t.id].max
-        [t.created_at.getlocal.strftime('%H:%M.%S'), t.user.name, t.full_text].join ' : '
+        Event.new created_at: t.created_at, created_by: t.user.name, full_text: t.full_text
       end
     rescue ::Twitter::Error::TooManyRequests
       rate_limit!

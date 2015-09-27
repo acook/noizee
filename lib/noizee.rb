@@ -8,6 +8,7 @@ module Noizee
 
     while true do
       if gestalt.listen then
+        gestalt.events.sort_by(&:created_at)
         puts gestalt.events.pop
       end
     end
