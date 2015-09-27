@@ -1,3 +1,4 @@
+require_relative 'internal'
 require_relative 'twitter'
 
 module Noizee
@@ -9,7 +10,7 @@ module Noizee
         end
       end
 
-      events.sort_by(&:created_at)
+      events.sort_by!(&:created_at).reverse!
 
       sleep 1
       !events.empty?
