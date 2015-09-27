@@ -4,7 +4,9 @@ module Noizee
   class Gestalt
     def listen
       if events.empty? then
-        events.concat twitter.get
+        sources.each do |source|
+          events.concat source.get
+        end
       end
 
       events.sort_by(&:created_at)
@@ -21,8 +23,15 @@ module Noizee
       @events ||= Array.new
     end
 
-    def twitter
-      @twitter ||= Noizee::Twitter.new
+    def sources
+      @sources ||= setup_sources
+    end
+
+    def setup_sources
+      [
+        Noizee::Internal.new,
+        Noizee::Twitter.new
+      ]
     end
   end
 end

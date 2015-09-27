@@ -17,7 +17,7 @@ module Noizee
     end
 
     def get
-      return Array.new if limit?
+      return Array.new if too_soon?
       checked!
 
       @client.home_timeline(options).map do |t|
@@ -29,14 +29,14 @@ module Noizee
       Array.new
     end
 
-    def limit?
+    def too_soon?
       diff = Time.now - last_check
       #p({delay: delay, diff: diff})
       diff < delay
     end
 
     def rate_limit!
-      warn "Twitter is rate-limiting your account."
+      Noizee::Internal.event "Twitter is rate-limiting your account."
       @delay = 60 * 60 # 1 hour
     end
 
