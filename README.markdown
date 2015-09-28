@@ -13,6 +13,10 @@ Features
 - Shiny 256 color terminal output!
 - Simple YAML configuration!
 
+![Action shot!](http://i.imgur.com/xhvRyY7.png)
+
+*note that on first load (as in the screenshot above) the latest events will be displayed in the order they are discovered*
+
 Getting Started
 ---------------
 
