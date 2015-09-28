@@ -5,6 +5,14 @@ Noizee
 
 Use Noizee to keep tabs on what's going on in your world. Noizee aggregates events from around the internet and displays them in one place so you don't have to check dozens of apps and services to stay up to date so you can plan your next move. 
 
+Features
+--------
+
+- Monitor an unlimited number of Twitter accounts!
+- Watch an unlimited number of RSS feeds!
+- Shiny 256 color terminal output!
+- Simple YAML configuration!
+
 Getting Started
 ---------------
 
