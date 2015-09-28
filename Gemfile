@@ -14,4 +14,7 @@ gem 'twitter'
 gem 'koala'
 # Github: https://github.com/peter-murach/github#contents
 gem 'github'
+
 # https://github.com/kylejginavan/youtube_it
+# https://github.com/seejohnrun/google_plus
+# https://github.com/google/google-api-ruby-client
