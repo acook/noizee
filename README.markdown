@@ -16,6 +16,26 @@ Getting Started
 Configuration
 -------------
 
+In your configuration file you have a set of keys representing the services you want to use, each of those can be an array of multiple accounts which will be included in the aggregation. 
+
+### Twitter
+
+- key: `twitter`
+- required settings: `consumer_key`, `consumer_secret`, `access_token`, and `access_token_secret`
+
+### RSS
+
+- key: `rss`
+- required settings: `url`
+- optional settings `alias`
+
+### Facebook
+
+**facebook support is experimental and not enabled by default**
+
+- key: `facebook`
+- required settings: `access_token`
+
 Example `.noizee` configuration:
 
 ~~~
