@@ -5,6 +5,10 @@ Noizee
 
 Use Noizee to keep tabs on what's going on in your world. Noizee aggregates events from around the internet and displays them in one place so you don't have to check dozens of apps and services to stay up to date so you can plan your next move. 
 
+![Action shot!](http://i.imgur.com/xhvRyY7.png)
+
+*on first load events will be displayed in the order they are discovered (shown above)*
+
 Features
 --------
 
@@ -12,10 +16,6 @@ Features
 - Watch an unlimited number of RSS feeds!
 - Shiny 256 color terminal output!
 - Simple YAML configuration!
-
-![Action shot!](http://i.imgur.com/xhvRyY7.png)
-
-*note that on first load (as in the screenshot above) the latest events will be displayed in the order they are discovered*
 
 Getting Started
 ---------------
