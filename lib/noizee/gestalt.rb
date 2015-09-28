@@ -1,6 +1,7 @@
 require_relative 'internal'
 require_relative 'twitter'
 require_relative 'rss'
+require_relative 'configuration'
 
 module Noizee
   class Gestalt
@@ -26,15 +27,20 @@ module Noizee
     end
 
     def sources
-      @sources ||= setup_sources
+      @sources || setup_sources
     end
 
     def setup_sources
-      [
-        Noizee::Internal.new,
-        Noizee::Twitter.new,
-        Noizee::RSS.new
-      ]
+      @sources = [Noizee::Internal.new]
+
+      {
+        twitter: Noizee::Twitter,
+        rss: Noizee::RSS
+      }.each_pair do |key, klass|
+        @sources << klass.new if Noizee::Configuration.has_key? key
+      end
+
+      @sources
     end
   end
 end
