@@ -12,10 +12,11 @@ Use Noizee to keep tabs on what's going on in your world. Noizee aggregates even
 Features
 --------
 
-- Monitor an unlimited number of Twitter accounts!
+- Monitor an unlimited number of Twitter accounts (thanks to [Twitter](https://rubygems.org/gems/twitter))!
 - Watch an unlimited number of RSS feeds!
-- Shiny 256 color terminal output!
-- Simple YAML configuration!
+- Simple YAML configuration (thanks to [ConfigModule](https://rubygems.org/gems/config_module))!
+- Shiny 256 color terminal output (thanks to [Remedy](https://rubygems.org/gems/remedy))!
+- Automatically conforms to the size of your terminal (also thanks to [Remedy](https://rubygems.org/gems/remedy))!
 
 Getting Started
 ---------------
