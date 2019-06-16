@@ -2,10 +2,6 @@ require 'twitter'
 require_relative 'event'
 require_relative 'configuration'
 
-# The Twitter gem is using a deprecated constant
-# This silences the warning message
-Faraday.const_set :Builder, Faraday::RackBuilder
-
 module Noizee
   class Twitter
     def initialize
