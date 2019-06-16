@@ -42,12 +42,16 @@ module Noizee
                 source: :rss,
                 created_at: (i.date || feed.channel.date),
                 created_by: (i.author || client.alias || feed.channel.title),
-                full_text: CGI.unescapeHTML(i.description || i.title)
+                full_text: sanitize(i.description || i.title)
               )
             end
           end
         end
       end.flatten.compact.tap{ @since = next_since if next_since }
+    end
+
+    def sanitize html
+      CGI.unescapeHTML(html).gsub /<br *\/*>/, ' '
     end
 
     def too_soon?
